@@ -3,7 +3,7 @@ var box;
 function setup(){
 createCanvas(600,600);
 box = createSprite(300,300,15,15);
-box.shapeColor = "blue";
+box.shapeColor = "white";
 }
 
 
@@ -12,7 +12,7 @@ box.shapeColor = "blue";
 
 
 function draw(){
-background ("red");
+background ("yellow");
 if (keyIsDown(RIGHT_ARROW)){
   box.position.x += 5;
 }
