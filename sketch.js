@@ -1,29 +1,37 @@
-var box;
+var sea,ship;
+var seaImg,shipImg;
+
+function preload(){
+  seaImg = loadImage("sea.png");
+  shipImg1 = loadAnimation("ship-1.png","ship-2.png","ship-1.png","ship-2.png");
+}
 
 function setup(){
-createCanvas(600,600);
-box = createSprite(300,300,15,15);
-box.shapeColor = "white";
+  createCanvas(400,400);
+  background("blue");
+
+  // Moving background
+  sea=createSprite(400,200);
+  sea.addImage("background",seaImg);
+  sea.velocityX = -5;
+  sea.scale=0.3;
+
+  
+  ship = createSprite(130,200,30,30);
+  ship.addAnimation("movingShip",shipImg1);
+  ship.scale =0.25;
+  
 }
 
+function draw() {
+  background(0);
+  sea.velocityX = -3;
 
+  //uncomment code to reset the background
+  if(sea.x < 0){
+    sea.x=sea.width/8;
+  }
 
-
-
-
-function draw(){
-background ("yellow");
-if (keyIsDown(RIGHT_ARROW)){
-  box.position.x += 5;
-}
-if (keyIsDown(LEFT_ARROW)){
-  box.position.x -= 5;
-}
-if (keyIsDown(UP_ARROW)){
-  box.position.y -= 5;
-}
-if (keyIsDown(DOWN_ARROW)){
-  box.position.y += 5;
-}
-drawSprites();
+ 
+  drawSprites();
 }
